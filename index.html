@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>致敬九方人 | 2026元旦寄语</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #f9f9f9;
+            --text-primary: #1a1a1a;
+            --text-secondary: #555555;
+            --jiufang-red: #ff3333;
+            --line-color: #e0e0e0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            min-height: 100vh;
+            box-shadow: 0 0 20px rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* --- LOGO 样式 (方案二：CSS滤镜素描化) --- */
+        .brand-logo {
+            position: absolute;
+            top: 24px;
+            left: 24px;
+            z-index: 10;
+            height: 48px; /* 根据 Logo 实际比例调整高度 */
+            width: auto;
+            
+            /* ★ 关键 CSS 滤镜代码 ★ 
+               原理：
+               1. grayscale(100%): 去色，变黑白
+               2. contrast(200%): 极大提高对比度，让灰色变黑，白色更白
+               3. brightness(1.1): 稍微提亮，去掉杂色
+               4. mix-blend-mode: multiply; 正片叠底，让Logo的白底变透明，只保留黑色线条
+            */
+            filter: grayscale(100%) contrast(200%) brightness(1.1);
+            mix-blend-mode: multiply; 
+            opacity: 0.9;
+            transition: all 0.3s ease;
+        }
+
+        /* 鼠标悬停时显示原色，方便查看效果（可选） */
+        .brand-logo:hover {
+            filter: none;
+            mix-blend-mode: normal;
+        }
+        
+        /* --- LOGO 占位符样式 (新增：当图片缺失时显示) --- */
+        .brand-logo-placeholder {
+            position: absolute;
+            top: 24px;
+            left: 24px;
+            z-index: 10;
+            height: 48px;
+            min-width: 120px;
+            border: 2px dashed #999;
+            background-color: rgba(255, 255, 255, 0.8);
+            color: #555;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 0 10px;
+            border-radius: 4px;
+        }
+
+        /* --- 顶部视觉区 --- */
+        header {
+            position: relative;
+            width: 100%;
+            height: 80vh;
+            background-color: #ffffff;
+            /* 这里引用本地的头图 */
+            background-image: url('header-bg.png'); 
+            background-size: cover;
+            background-position: center top;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 40px 24px;
+        }
+
+        header.no-image {
+            background-image: none;
+            background-color: #f0f0f0;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: linear-gradient(to top, #ffffff 10%, rgba(255,255,255,0) 100%);
+            z-index: 1;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        h1 {
+            font-size: 36px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 8px;
+            letter-spacing: -1px;
+        }
+
+        .sub-title {
+            font-size: 16px;
+            color: var(--text-secondary);
+            font-weight: 300;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .sub-title::before {
+            content: '';
+            display: block;
+            width: 30px;
+            height: 1px;
+            background-color: var(--text-primary);
+        }
+
+        .quote-section {
+            padding: 40px 32px;
+            background-color: #fff;
+            position: relative;
+            border-bottom: 1px solid var(--line-color);
+        }
+
+        .quote-section::before {
+            content: '';
+            position: absolute;
+            left: 24px;
+            top: 45px;
+            bottom: 45px;
+            width: 3px;
+            background-color: var(--jiufang-red);
+        }
+
+        .quote-text {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .quote-desc {
+            font-size: 14px;
+            color: var(--text-secondary);
+            font-weight: 300;
+        }
+
+        .inline-image-container {
+            margin: 40px 0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            position: relative;
+            background-color: #f0f0f0; 
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .inline-image-container img {
+            width: 100%;
+            display: block;
+            /* 对插图也进行素描化处理，统一风格 */
+            filter: grayscale(100%) contrast(110%); 
+            min-height: 200px;
+            object-fit: cover;
+        }
+        
+        .img-placeholder-text {
+            position: absolute;
+            color: #999;
+            font-size: 14px;
+            text-align: center;
+            padding: 20px;
+            z-index: 0;
+        }
+
+        .image-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 10px 16px;
+            background: rgba(255, 255, 255, 0.95);
+            font-size: 12px;
+            color: var(--text-secondary);
+            border-top: 1px solid rgba(0,0,0,0.05);
+            z-index: 1;
+        }
+
+        .content-body {
+            padding: 48px 32px;
+        }
+
+        .letter-opening {
+            font-size: 16px;
+            margin-bottom: 32px;
+            font-weight: 700;
+        }
+
+        .text-block {
+            margin-bottom: 32px;
+        }
+
+        .highlight-phrase {
+            font-weight: 700;
+            color: var(--text-primary);
+            display: block;
+            margin-bottom: 8px;
+            position: relative;
+        }
+        
+        .highlight-phrase::after {
+            content: '';
+            display: block;
+            width: 24px;
+            height: 2px;
+            background-color: var(--line-color);
+            margin-top: 6px;
+        }
+
+        p {
+            margin-bottom: 16px;
+            text-align: justify;
+        }
+
+        footer {
+            padding: 60px 32px;
+            background-color: #1a1a1a;
+            color: #fff;
+            text-align: center;
+            position: relative;
+        }
+
+        .footer-year {
+            font-family: 'Playfair Display', serif;
+            font-size: 64px;
+            font-weight: 700;
+            line-height: 1;
+            opacity: 0.1;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+        }
+
+        .footer-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-logo {
+            font-size: 14px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+            opacity: 0.6;
+        }
+
+        .footer-msg {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        
+        .footer-sub {
+            font-size: 14px;
+            font-weight: 300;
+            color: var(--jiufang-red);
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+
+        .bg-decoration {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.03;
+            background-image: 
+                linear-gradient(var(--text-primary) 1px, transparent 1px),
+                linear-gradient(90deg, var(--text-primary) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="bg-decoration"></div>
+
+        <!-- 
+           ★ 方案二 LOGO 设置 ★
+           请放入 logo.png。如果图片缺失，会显示下方的虚线框占位符。
+        -->
+        <img src="logo.png" 
+             class="brand-logo" 
+             alt="EAC Logo" 
+             onerror="this.style.display='none'; document.querySelector('.brand-logo-placeholder').style.display='flex';">
+        
+        <!-- 可视化 Logo 占位符 (当找不到 logo.png 时显示) -->
+        <div class="brand-logo-placeholder" style="display: none;">LOGO 占位位<br>(logo.png)</div>
+
+
+        <header>
+            <div class="header-content fade-in-up">
+                <h1>致敬无名<br>致敬我们</h1>
+                <div class="sub-title">2026 EAC NEW YEAR</div>
+            </div>
+        </header>
+
+        <section class="quote-section fade-in-up delay-1">
+            <div class="quote-text">
+                我们在不确定的复杂系统中<br>构建秩序<br>
+                我们为不确定的复杂系统<br>构建秩序
+            </div>
+            <div class="quote-desc">—— 2026·九方人的价值</div>
+        </section>
+
+        <section class="content-body">
+            <div class="letter-opening fade-in-up delay-2">各位九方的同仁：</div>
+
+            <div class="text-block fade-in-up delay-2">
+                <p>2026年的阳光已至。在这崭新的起点，我们不谈成绩，不谈目标，单纯地致敬。</p>
+            </div>
+
+            <div class="text-block fade-in-up delay-2">
+                <span class="highlight-phrase">致敬伙伴与对手</span>
+                
+                <!-- 
+                    ★ 团队插图设置 ★
+                    这里也应用了素描滤镜，您可以替换 src 为您的团队照片
+                -->
+                <div class="inline-image-container" style="margin-top: 20px; margin-bottom: 20px;">
+                    <img src="九方世纪-12.png" 
+                         alt="九方人团队协作素描" 
+                         onerror="this.parentElement.style.display='none'"
+                         style="filter: grayscale(100%) contrast(150%) brightness(1.1);">
+                    <div class="image-caption">图：并肩作战，聚力前行</div>
+                </div>
+
+                <p>是合作让我们懂得聚力，是竞争逼出了更强的自己。凡是共同奋斗过的，皆为战友；凡是汗水流过的，必有回响。</p>
+            </div>
+
+            <div class="text-block fade-in-up delay-2">
+                <span class="highlight-phrase">致敬低头赶路的人</span>
+                <p>致敬那些迎难而上的勇气，致敬那些“顶着风的陀螺”。在充满不确定性的时间里，我们用这份“制造秩序”的能力，把自己活成了唯一的确定性。</p>
+            </div>
+
+            <div class="inline-image-container fade-in-up delay-2">
+                <div class="img-placeholder-text">此处显示：秩序微光插图<br>(请保存 inline-sketch.png)</div>
+                <img src="inline-sketch.png" 
+                     alt="Abstract automation sketch with red highlight"
+                     style="position: relative; z-index: 1;"
+                     onerror="this.style.display='none'"> 
+                <div class="image-caption">图：在纷乱的系统中，点亮秩序的微光</div>
+            </div>
+
+            <div class="text-block fade-in-up delay-3">
+                <span class="highlight-phrase">致敬平凡与无名</span>
+                <p>在大兴机场航站楼，在健康云、火山云数据中心的机房里；在几十米高的蓄冷罐、在几千公里外的异国马来，我们的名字不刻在丰碑上，只写在系统上线时屏住呼吸的画面里。</p>
+                <p>在夜色阑珊时，办公室亮着的一束灯光里；在姑娘们汗湿发梢的仓库里；在凌晨依然在线的会议里，无名的九方人交付的不负所托的价值</p>
+                <p>我们致敬自己——“燃烧了时光想要干成个样子”，不是为了掌声，而是为了对得起“专业”二字。</p>
+            </div>
+            
+            <div class="text-block fade-in-up delay-3" style="margin-top: 40px; padding: 20px; background: #f5f5f5; border-radius: 4px;">
+                <p style="text-align: center; margin: 0; font-weight: 500;">
+                    虽然我们平凡，但值得尊重<br>
+                    虽然我们无名，但创造价值
+                </p>
+            </div>
+        </section>
+
+        <footer>
+            <div class="footer-year">2026</div>
+            <div class="footer-content fade-in-up delay-3">
+                <div class="footer-logo">EAC AUTOMATION</div>
+                <div class="footer-msg">开工大吉 新年快乐</div>
+                <div class="footer-sub">致敬，每一位九方人！</div>
+            </div>
+        </footer>
+    </div>
+    
+    <script>
+        const header = document.querySelector('header');
+        const bgImg = new Image();
+        bgImg.src = 'header-bg.png';
+        bgImg.onerror = function() {
+            header.classList.add('no-image');
+            console.log("请确保 'header-bg.png' 在当前目录下");
+        };
+    </script>
+</body>
+</html>
